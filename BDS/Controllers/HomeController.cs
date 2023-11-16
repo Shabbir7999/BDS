@@ -24,5 +24,24 @@ namespace BDS.Controllers
 		{
 			return View();
 		}
+
+		[HttpPost]
+		public ActionResult Register(Donor donor)
+		{
+
+			// List<Donor> listofdonors;
+
+			using (BDSContext db = new BDSContext())
+			{
+				db.Donors.Add(donor);
+				db.SaveChanges();
+				//listofdonors = db.Donors.ToList();
+			}
+
+
+
+			return View();
+
+		}
 	}
 }
