@@ -30,7 +30,68 @@ namespace BDS.Models
                 optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = BDS; Trusted_Connection = True; ");
             }
         }
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
-       
-    }
+			modelBuilder.Entity<Admin>(entity =>
+			{
+				entity.ToTable("admin");
+
+				entity.Property(e => e.Password)
+					.IsRequired()
+					.HasMaxLength(50)
+					.IsUnicode(false)
+					.HasColumnName("password");
+
+				entity.Property(e => e.Username)
+					.IsRequired()
+					.HasMaxLength(50)
+					.IsUnicode(false)
+					.HasColumnName("username");
+			});
+
+			modelBuilder.Entity<Donor>(entity =>
+			{
+				entity.ToTable("donor");
+
+				entity.Property(e => e.Age).HasColumnName("age");
+
+				entity.Property(e => e.Bloodtype)
+					.IsRequired()
+					.HasMaxLength(50)
+					.HasColumnName("bloodtype");
+
+				entity.Property(e => e.Email)
+					.IsRequired()
+					.HasMaxLength(50)
+					.IsUnicode(false)
+					.HasColumnName("email");
+
+				entity.Property(e => e.Name)
+					.IsRequired()
+					.HasMaxLength(50)
+					.IsUnicode(false)
+					.HasColumnName("name");
+
+				entity.Property(e => e.Phno)
+					.IsRequired()
+					.HasMaxLength(50)
+					.IsUnicode(false)
+					.HasColumnName("phno");
+
+				entity.Property(e => e.Residence)
+					.IsRequired()
+					.HasMaxLength(50)
+					.IsUnicode(false)
+					.HasColumnName("residence");
+			});
+
+			OnModelCreatingPartial(modelBuilder);
+		}
+
+		//partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+
+	}
 }
