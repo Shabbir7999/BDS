@@ -1,0 +1,57 @@
+﻿
+@*!--form--!*@
+<div class="container">
+    <h2>Search Donor</h2>
+
+    <form action="/Home/ShowSearchDonorTable" method="post" class="needs-validation" novalidate>
+        <div class="form-group">
+            <label for="btype">Blood Type:</label>
+            <select class="form-control" id="btype" name="bloodtype" required>
+                <option value="" disabled selected>Select your blood type</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+            </select>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please select a blood type.</div>
+        </div>
+
+      
+
+
+
+        <button type="submit" class="btn btn-danger">Serach</button>
+    </form>
+</div>
+
+
+
+
+
+<script>
+    // Disable form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Get the forms we want to add validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+
+

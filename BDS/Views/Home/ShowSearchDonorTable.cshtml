@@ -1,0 +1,45 @@
+﻿
+@model List<BDS.Models.Donor>
+<div class="container">
+    <h2>Donor's Data</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>BloodType</th>
+                <th>Phone No.</th>
+                <th>Email</th>
+                <th>Residence</th>
+                <th>LastDonationDate</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var record in Model)
+                {
+
+                    <tr>
+                        <td>@record.Name</td>
+                        <td>@record.Age</td>
+                        <td>@record.Bloodtype</td>
+                        <td>@record.Phno</td>
+                        <td>@record.Email</td>
+                        <td>@record.Residence</td>
+                        <td>@record.LastDonationDate</td>
+                    </tr>
+
+                }
+
+            }
+
+        </tbody>
+    </table>
+</div>
+
+<div class="jumbotron" style="background-color:brown; color:whitesmoke; margin:50px">
+
+    <h4 style="text-align:center">Your donation can save a life!!!</h4>
+    <p style="text-align:center"> Copyrights 2021</p>
+
+</div>

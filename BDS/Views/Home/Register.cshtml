@@ -1,0 +1,113 @@
+﻿@*!--form--!*@
+<div class="container" style="margin:50px">
+    <h2>Register Yourself</h2>
+
+    <form action="/Home/Register" method="post" class="needs-validation" novalidate>
+
+        <div class="form-group">
+            <label for="uname">Name:</label>
+            <input type="text" class="form-control" id="uname" placeholder="Enter name" name="name" required
+                   pattern="[A-Za-z\s]{1,50}" 
+            >
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">
+                Please enter a valid name (letters and spaces only, max 50 characters).
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" class="form-control" id="age" placeholder="Enter age" name="age" required
+                   pattern="[0-9]{1,3}"  
+            min="1"  
+            max="200"  
+            >
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">
+                Please enter a valid age (1-999).
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="mail">Email:</label>
+            <input type="email" class="form-control" id="mail" placeholder="Enter email" name="email" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field/Invalid.</div>
+        </div>
+
+        <div class="form-group">
+            <label for="btype">Blood Type:</label>
+            <select class="form-control" id="btype" name="bloodtype" required>
+                <option value="" disabled selected>Select your blood type</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+            </select>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please select a blood type.</div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="phno">Phone Number:</label>
+            <input type="tel" class="form-control" id="phno" placeholder="Enter phone number" name="phno" required
+                   pattern="[0-9]{10,15}"  
+            >
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">
+                Please enter a valid phone number without dashes(10-15 digits).
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="res">Residence:</label>
+            <input type="text" class="form-control" id="res" placeholder="Enter residential area" name="residence" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field/Invalid.</div>
+        </div>
+
+
+
+        <button type="submit" style="align-self:center" class="btn btn-danger">Register!!</button>
+    </form>
+</div>
+
+
+<div class="jumbotron" style="background-color:brown; color:whitesmoke; margin:50px">
+
+    <h4 style="text-align:center">Your donation can save a life!!!</h4>
+    <p style="text-align:center"> Copyrights 2021</p>
+
+</div>
+
+<script>
+    // Disable form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Get the forms we want to add validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+
+
+
